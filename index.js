@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-/* WEBHOOK ROUTE */
+/* CASHFREE WEBHOOK ROUTE */
 
 app.post("/api/cashfree-webhook", async (req, res) => {
   try {
@@ -71,10 +71,6 @@ Team iiHub LLP
   }
 });
 
-/* SERVER */
-
-});
-
 /* EMAIL FROM SUCCESS PAGE */
 
 app.post("/send-email", async (req, res) => {
@@ -116,11 +112,6 @@ Team iiHub LLP
 });
 
 /* SERVER */
-
-app.get("/", (req, res) => {
-  res.send("Cashfree Webhook Server Running");
-});
-
 
 app.get("/", (req, res) => {
   res.send("Cashfree Webhook Server Running");
