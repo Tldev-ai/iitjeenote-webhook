@@ -1,0 +1,16 @@
+{
+  "name": "iitjeenote-cashfree-webhook",
+  "version": "1.0.0",
+  "description": "Cashfree webhook server for automated email delivery - IIT JEE Note",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
