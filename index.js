@@ -73,6 +73,55 @@ Team iiHub LLP
 
 /* SERVER */
 
+});
+
+/* EMAIL FROM SUCCESS PAGE */
+
+app.post("/send-email", async (req, res) => {
+  try {
+
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).send("Email missing");
+    }
+
+    await transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: email,
+      subject: "Your IIT-JEE Handwritten Revision Notes",
+      html: `
+Hello
+
+Thank you for purchasing the IIT-JEE Handwritten Revision Notes.
+
+📚 Access your notes:
+https://drive.google.com/drive/folders/17zaLxIhNnY0m0pY2Axfa8UuKV2ELaT4l
+
+🔑 Passwords are inside the drive folder image.
+
+Best regards  
+Team iiHub LLP
+`
+    });
+
+    console.log("Email sent to:", email);
+
+    res.json({ success: true });
+
+  } catch (error) {
+    console.error("Email error:", error);
+    res.status(500).send("Email failed");
+  }
+});
+
+/* SERVER */
+
+app.get("/", (req, res) => {
+  res.send("Cashfree Webhook Server Running");
+});
+
+
 app.get("/", (req, res) => {
   res.send("Cashfree Webhook Server Running");
 });
